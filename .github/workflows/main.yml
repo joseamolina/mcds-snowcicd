@@ -1,6 +1,7 @@
 name: Deployment of code in Snowflake
 
 on:
+  # Delete following
   push:
     branches: [ "main" ]
   pull_request:
@@ -8,7 +9,7 @@ on:
 
 jobs:
   run-scripts:
-    if: github.event.pull_request.merged == true
+    # Add this if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
