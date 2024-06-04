@@ -23,11 +23,11 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        # Agrega aquí los comandos para instalar dependencias si es necesario.
+        pip install snowflake-connector-python
 
     - name: Execute script for main branch
       if: github.event.pull_request.base.ref == 'main'
-      run: python pipeline.py  # Reemplaza con el nombre del script para main
+      run: python pipeline.py  # Reemplaza con el nombre del script para mainj
 
     - name: Execute script for other branches
       if: github.event.pull_request.base.ref != 'main'
