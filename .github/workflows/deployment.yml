@@ -1,0 +1,32 @@
+name: Deployment of code in Snowflake
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  run-scripts:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        # Agrega aquí los comandos para instalar dependencias si es necesario
+
+    - name: Execute script for main branch
+      if: github.event.pull_request.base.ref == 'main'
+      run: python pipeline.py  # Reemplaza con el nombre del script para main
+
+    - name: Execute script for other branches
+      if: github.event.pull_request.base.ref != 'main'
+      run: python pipeline.py  # Reemplaza con el nombre del script para otras ramas

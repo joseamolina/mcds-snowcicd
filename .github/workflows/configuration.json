@@ -1,0 +1,5 @@
+{
+  "run_files": [
+    "create_table.sql"
+  ]
+}
