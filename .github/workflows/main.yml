@@ -1,6 +1,8 @@
 name: Deployment of code in Snowflake
 
 on:
+  push:
+    branches: [ "main" ]
   pull_request:
     types: [closed]
 
