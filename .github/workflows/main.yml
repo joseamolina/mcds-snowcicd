@@ -21,7 +21,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        # Agrega aquí los comandos para instalar dependencias si es necesario
+        # Agrega aquí los comandos para instalar dependencias si es necesario.
 
     - name: Execute script for main branch
       if: github.event.pull_request.base.ref == 'main'
